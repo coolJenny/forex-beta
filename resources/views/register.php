@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
 <head>
     <title>Form Example</title>
 </head>

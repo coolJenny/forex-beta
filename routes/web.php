@@ -27,6 +27,39 @@ Route::post('/user/register', array('uses'=>'UserRegistration@postRegister'));
 Route::get('/cookie/set', 'CookieController@setCookie');
 Route::get('/cookie/get', 'CookieController@getCookie');
 
+Route::get('/basic_response', function(){
+    return 'Hello World';
+});
+
+Route::get('/header', function (){
+    return response('Hello', 200) -> header('Content-Type', 'text/html');
+});
+
+Route::get('/cookie',function(){
+    return response("Hello", 200)->header('Content-Type', 'text/html')->withcookie('name','Virat Gandhi');
+});
+
+Route::get('json',function(){
+    return response()->json(['name' => 'Virat Gandhi', 'state' => 'Gujarat']);
+});
+
+Route::get('blade', function(){
+    return view('page', array('name' => 'Virate Gandhi'));
+});
+
+Route::get('/test', ['as' => 'testing', function(){
+    return view('test');
+}]);
+
+Route::get('redirect', function(){
+    return redirect()->route('testing');
+});
+
+Route::get('rr','RedirectController@index');
+Route::get('/redirectcontroller',function(){
+    return redirect()->action('RedirectController@index');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
