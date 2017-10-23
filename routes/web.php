@@ -24,6 +24,9 @@ Route::get('/register', function(){
 
 Route::post('/user/register', array('uses'=>'UserRegistration@postRegister'));
 
+Route::get('/cookie/set', 'CookieController@setCookie');
+Route::get('/cookie/get', 'CookieController@getCookie');
+
 Route::get('/', function () {
     return view('welcome');
 });
