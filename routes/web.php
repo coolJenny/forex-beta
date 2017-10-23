@@ -11,6 +11,11 @@
 |
 */
 
+class MyClass{
+    public $foo = 'bar';
+}
+Route::get('/myclass', 'MycontController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
